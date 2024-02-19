@@ -1,0 +1,14 @@
+clear all port; 
+a =arduino("COM3","Bruno");
+s=servo(a, "D9");
+%s =servo(a, "D4", "MinPulseDuration", 7.00e-4, "MaxPulseDuration", 2.3e-3)
+
+for i=1:3
+    writePosition(s,0.5); %pi/2
+    pause(1);
+    writePosition(s,0); %0
+    pause(1);
+    writePosition(s,1); %pi
+    pause(1);
+
+end 
